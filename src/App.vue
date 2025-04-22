@@ -4,12 +4,19 @@
 
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { getInstance } from "idb-fs";
+import { getInstance, getAllIDBFileSystem } from "idb-filesystem-api";
+
+
 
 onMounted(init);
 
 async function init() {
   const rootDir = await getInstance();
+
+
+  const allSystems = await getAllIDBFileSystem();
+  console.log("allSystems:", allSystems);
+
   const dirHandle = await rootDir.getDirectoryHandle(
     "测试文件夹1",
     { create: true }
@@ -78,14 +85,14 @@ async function init() {
 
 
   // getFile
-  fileHandleL2_1.getFile().then(r=> {
+  fileHandleL2_1.getFile().then(r => {
     const fd = new FileReader();
     fd.readAsText(r);
     fd.onload = function () {
       console.log("fileHandleL2_1 file:", fd.result);
     }
   });
-  fileHandleL2_2.getFile().then(r=> console.log("fileHandleL2_2 file:", r))
+  fileHandleL2_2.getFile().then(r => console.log("fileHandleL2_2 file:", r))
 
 
 

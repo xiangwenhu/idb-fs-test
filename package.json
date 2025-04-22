@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "vue": "^3.5.13",
-    "idb-fs": "file://D://projects//github-my//idb-fs//idb-fs-0.0.1.tgz"
+    "idb-filesystem-api": "file://D://projects//github-my//idb-fs//idb-filesystem-api-0.0.1.tgz"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.1",
